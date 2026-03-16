@@ -34,10 +34,10 @@ public class VentaController {
     }
 
     @PutMapping("/{id}")
-    public VentaDTO actualizar(@PathVariable Long id, @RequestBody VentaDTO dto) {
+    public ResponseEntity<VentaDTO> actualizar(@PathVariable Long id, @RequestBody VentaDTO dto) {
         // Actualiza fecha, estado, idSucursal, total y reemplaza el detalle
 
-        return ventaService.actualizarVenta(id, dto);
+        return ResponseEntity.ok(ventaService.actualizarVenta(id, dto));
     }
 
     @DeleteMapping("/{id}")
